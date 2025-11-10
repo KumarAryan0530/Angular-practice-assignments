@@ -1,0 +1,11 @@
+<div class="status-card">
+  <h5>Form Status:</h5>
+  <p><strong>Valid:</strong> {{ valid }}</p>
+  <p><strong>Touched:</strong> {{ touched }}</p>
+  <p><strong>Dirty:</strong> {{ dirty }}</p>
+
+  <div *ngIf="formValues" class="submitted-values">
+    <h6>Submitted Data:</h6>
+    <pre>{{ formValues | json }}</pre>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h1>Subscription Form</h1>
+
+      <div class="form-layout">
+        <div class="form-main">
+          <!-- Alert Placeholder Area (prevents layout shift) -->
+          <div class="alert-placeholder">
+            <!-- Form Invalid Warning -->
+            <div [class.show]="isFormInvalid()" class="alert alert-warning">
+                <div class="alert-header">Warning</div>
+                <div class="alert-body">Form is invalid. Please complete all required fields correctly.</div>
+              </div>
+
+            <!-- Form Submission Success -->
+            <div [class.show]="submitted && subscriptionForm.valid" class="alert alert-success">
+              <div class="alert-header">Success</div>
+              <div class="alert-body">
+                <div>Form submitted successfully! Check the console for details.</div>
+                <div *ngIf="formValues" class="mt-3">
+                  <h5>Submitted Form Data:</h5>
+                  <pre>{{ formValues | json }}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form [formGroup]="subscriptionForm" (ngSubmit)="onSubmit()">
+
+            <!-- Email Field -->
+            <div class="form-group">
+              <label for="email">Email Address:</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('email')"
+                formControlName="email"
+                placeholder="Enter your email address"
+                required>
+              <div *ngIf="isFieldInvalid('email')" class="invalid-feedback">
+                <strong>Error:</strong> {{ getErrorMessage('email') }}
+              </div>
+            </div>
+
+            <!-- Subscription Dropdown -->
+            <div class="form-group">
+              <label for="subscription">Subscription Plan:</label>
+              <select
+                id="subscription"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('subscription')"
+                formControlName="subscription"
+                required>
+                <option value="" disabled>Select a subscription plan</option>
+                <option *ngFor="let option of subscriptionOptions"
+                  [value]="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+              <div *ngIf="isFieldInvalid('subscription')" class="invalid-feedback">
+                <strong>Error:</strong> {{ getErrorMessage('subscription') }}
+              </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                [class.is-invalid]="isFieldInvalid('password')"
+                formControlName="password"
+                placeholder="Enter your password"
+                required>
+              <div *ngIf="isFieldInvalid('password')" class="invalid-feedback">
+                <strong>Error:</strong> {{ getErrorMessage('password') }}
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="subscriptionForm.invalid && submitted">
+                Submit
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="form-side">
+          <app-form-status
+            [valid]="subscriptionForm.valid"
+            [touched]="subscriptionForm.touched"
+            [dirty]="subscriptionForm.dirty"
+            [formValues]="formValues">
+          </app-form-status>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
