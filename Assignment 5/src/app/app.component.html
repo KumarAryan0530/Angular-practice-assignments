@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <!-- Active Users Section -->
+  <div class="section">
+    <h2>Active Users</h2>
+    <div class="users-list">
+      <div *ngIf="activeUsers.length > 0; else noActiveUsers">
+        <div *ngFor="let user of activeUsers" class="user-card">
+          <span class="user-name">{{ user.name }}</span>
+          <button 
+            class="btn btn-secondary" 
+            (click)="toggleUserStatus(user)">
+            Set to Inactive
+          </button>
+        </div>
+      </div>
+      <ng-template #noActiveUsers>
+        <p class="no-users">No active users</p>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- Inactive Users Section -->
+  <div class="section">
+    <h2>Inactive Users</h2>
+    <div class="users-list">
+      <div *ngIf="inactiveUsers.length > 0; else noInactiveUsers">
+        <div *ngFor="let user of inactiveUsers" class="user-card">
+          <span class="user-name">{{ user.name }}</span>
+          <button 
+            class="btn btn-primary" 
+            (click)="toggleUserStatus(user)">
+            Set to Active
+          </button>
+        </div>
+      </div>
+      <ng-template #noInactiveUsers>
+        <p class="no-users">No inactive users</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
