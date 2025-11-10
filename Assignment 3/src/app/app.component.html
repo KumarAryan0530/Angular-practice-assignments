@@ -1,0 +1,10 @@
+<div>
+  <h2>Username two-way binding demo</h2>
+
+  <label for="username">Username: </label>
+  <input id="username" type="text" [(ngModel)]="username" placeholder="Enter username" />
+
+  <p>You entered: {{ username }}</p>
+
+  <button [disabled]="!(username && username.trim().length)" (click)="reset()">Reset</button>
+</div>
