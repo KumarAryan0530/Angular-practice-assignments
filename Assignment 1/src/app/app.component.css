@@ -1,0 +1,5 @@
+/* Styles specific to the root component */
+:host {
+  display: block;
+  max-width: 800px;
+}
