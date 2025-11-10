@@ -1,0 +1,16 @@
+<h1>Angular Assignment - Click Logger</h1>
+
+<button (click)="toggleDetails()">Display Details</button>
+
+<p *ngIf="isDetailsVisible" style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border-left: 4px solid #333;">
+  <strong>Secret Information:</strong> Secret Password = tuna
+</p>
+
+<div *ngIf="clickLog.length > 0" style="margin-top: 30px;">
+  <h3>Click Log:</h3>
+  <div *ngFor="let log of clickLog; let i = index" 
+       [ngStyle]="getLogItemStyle(i)"
+       [ngClass]="{'blue-background': i >= 4}">
+    Click #{{ log.number }} - {{ log.timestamp }}
+  </div>
+</div>
