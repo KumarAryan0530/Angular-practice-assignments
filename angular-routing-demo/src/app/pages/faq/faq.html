@@ -1,0 +1,109 @@
+<div class="page-container">
+  <h1>Frequently Asked Questions</h1>
+  <p>Find answers to common questions about Angular routing and our services.</p>
+  
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What is Angular routing?</h3>
+        <span class="toggle">+</span>
+      </div>
+      <p class="faq-answer">Angular routing is a mechanism that allows you to navigate between different components and views in a single-page application (SPA) without full page reloads.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>How do I set up routing in Angular?</h3>
+        <span class="toggle">+</span>
+      </div>
+      <p class="faq-answer">You need to define your routes in a routing module using the RouterModule and Routes array, then import it into your AppModule or app configuration.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What are lazy-loaded routes?</h3>
+        <span class="toggle">+</span>
+      </div>
+      <p class="faq-answer">Lazy loading is a technique where you load feature modules only when they are needed, improving your application's initial load time.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>How do I navigate programmatically?</h3>
+        <span class="toggle">+</span>
+      </div>
+      <p class="faq-answer">You can use the Router service's navigate() or navigateByUrl() methods to programmatically navigate to different routes in your application.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <h3>What are route guards?</h3>
+        <span class="toggle">+</span>
+      </div>
+      <p class="faq-answer">Route guards are Angular services that control navigation. They can be used to protect routes, require authentication, or validate data before allowing navigation.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .page-container {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  h1 {
+    color: #667eea;
+  }
+
+  .faq-list {
+    margin-top: 30px;
+  }
+
+  .faq-item {
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    background: #f5f5f5;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: #efefef;
+  }
+
+  .faq-question h3 {
+    margin: 0;
+    color: #333;
+  }
+
+  .toggle {
+    font-size: 24px;
+    color: #667eea;
+    font-weight: bold;
+  }
+
+  .faq-answer {
+    padding: 20px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
